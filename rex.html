@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raymond Ibrahim - Sales Closer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0D0D0D;
+            --secondary: #1A1A1A;
+            --accent: #C9A961;
+            --accent-glow: #E8D4A0;
+            --white: #FFFFFF;
+            --text: #F5F5F5;
+            --text-dim: #B8B8B8;
+            --text-subtle: #808080;
+            --bg-dark: #000000;
+            --transition: cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-fast: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.025;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        /* Luxurious glow effects */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            top: -10%;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            bottom: 10%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+            animation: slideDown 1s var(--transition);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transition: width 0.4s var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-glow);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 6%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(201, 169, 97, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(232, 212, 160, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg-dark) 0%, var(--primary) 100%);
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(201, 169, 97, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 97, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.3;
+            animation: grid-flow 20s linear infinite;
+        }
+
+        @keyframes grid-flow {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s var(--transition) 0.3s forwards;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle::before,
+        .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent));
+        }
+
+        .hero-subtitle::before {
+            right: calc(100% + 20px);
+        }
+
+        .hero-subtitle::after {
+            left: calc(100% + 20px);
+            background: linear-gradient(to left, transparent, var(--accent));
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 10vw, 8.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+            opacity: 0;
+            animation: fadeInUp 1s var(--transition) 0.5s forwards;
+            background: linear-gradient(135deg, var(--white) 0%, var(--text) 50%, var(--accent-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-title strong {
+            font-weight: 800;
+            display: block;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(201, 169, 97, 0.3);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            max-width: 850px;
+            margin: 0 auto 4rem;
+            line-height: 1.9;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1s var(--transition) 0.7s forwards;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s var(--transition) 0.9s forwards;
+        }
+
+        .cta-primary {
+            position: relative;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            overflow: hidden;
+            transition: all 0.5s var(--transition);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.3);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--white) 100%);
+            transition: left 0.5s var(--transition);
+        }
+
+        .cta-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 70px rgba(201, 169, 97, 0.5);
+        }
+
+        .cta-primary:hover::before {
+            left: 0;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeInUp 1s var(--transition) 1.2s forwards, bounce 2s ease-in-out 2.5s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(15px);
+            }
+        }
+
+        .scroll-line {
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent-glow), transparent);
+            animation: scroll-animation 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-animation {
+            0% {
+                top: -40px;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .scroll-text {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            font-weight: 500;
+        }
+
+        /* Capabilities Section */
+        .stats {
+            padding: 10rem 6%;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 3.5rem 2rem;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.04) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s var(--transition);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s var(--transition);
+        }
+
+        .stat-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(201, 169, 97, 0.2);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: all 0.6s var(--transition);
+        }
+
+        .stat-item:hover .stat-icon {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 10rem 6%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.15rem;
+            margin-bottom: 6rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .expertise-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            padding: 3.5rem 3rem;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.03) 0%, rgba(0, 0, 0, 0.5) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--accent);
+            transition: all 0.6s var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.6s var(--transition);
+            z-index: -1;
+        }
+
+        .expertise-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
+            transition: left 0.8s var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-8px);
+            border-left-color: var(--accent-glow);
+            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.2);
+        }
+
+        .expertise-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .expertise-card:hover::after {
+            left: 100%;
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            display: block;
+            filter: grayscale(1);
+            opacity: 0.5;
+            transition: all 0.6s var(--transition);
+        }
+
+        .expertise-card:hover .expertise-icon {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .expertise-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .expertise-card p {
+            color: var(--text-dim);
+            line-height: 1.9;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 10rem 6%;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        .approach::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .approach-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .approach-steps {
+            margin-top: 6rem;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            padding-bottom: 5rem;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s var(--transition);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number-container {
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.3) 0%, rgba(201, 169, 97, 0.1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 0.9;
+            letter-spacing: -4px;
+            position: relative;
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .step-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .step-content p {
+            color: var(--text-dim);
+            line-height: 2;
+            font-weight: 300;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Demonstrations Section */
+        .results {
+            padding: 10rem 6%;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--primary) 50%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .results::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .results-grid {
+            max-width: 1400px;
+            margin: 6rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.04) 0%, rgba(0, 0, 0, 0.6) 100%);
+            padding: 3.5rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s var(--transition);
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s var(--transition);
+        }
+
+        .result-card::after {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.02) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .result-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(201, 169, 97, 0.25);
+        }
+
+        .result-card:hover::before {
+            opacity: 1;
+        }
+
+        .result-category {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            color: var(--accent);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .result-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.3px;
+        }
+
+        .result-metric {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            letter-spacing: -1px;
+        }
+
+        .result-context {
+            font-size: 0.85rem;
+            color: var(--text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 12rem 6%;
+            background: var(--bg-dark);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(232, 212, 160, 0.08) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            line-height: 2;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            position: relative;
+            padding: 1.5rem 4rem;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.5s var(--transition);
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .cta-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+            transition: left 0.5s var(--transition);
+            z-index: -1;
+        }
+
+        .cta-secondary:hover {
+            color: var(--bg-dark);
+            border-color: var(--accent-glow);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.4);
+        }
+
+        .cta-secondary:hover::before {
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 6%;
+            background: var(--primary);
+            border-top: 1px solid rgba(201, 169, 97, 0.15);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-subtle);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.4s var(--transition);
+            position: relative;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+            transition: width 0.4s var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-glow);
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .glow-1, .glow-2 {
+                width: 400px;
+                height: 400px;
+            }
+
+            .step {
+                grid-template-columns: 100px 1fr;
+                gap: 2.5rem;
+            }
+
+            .step-number {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 5%;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.7rem;
+            }
+
+            .hero {
+                padding: 0 5%;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+            }
+
+            .hero-subtitle::before,
+            .hero-subtitle::after {
+                width: 30px;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                padding: 1.2rem 2.5rem;
+            }
+
+            .stats-grid,
+            .expertise-grid,
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step {
+                grid-template-columns: 80px 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            .step-number {
+                font-size: 4rem;
+            }
+
+            .step-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                gap: 2rem;
+            }
+
+            .glow-1, .glow-2 {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 0.65rem;
+                letter-spacing: 3px;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-card {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s var(--transition);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-glow) 100%);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--accent-glow) 0%, var(--accent) 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav>
+        <div class="logo">RAYMOND</div>
+        <ul class="nav-links">
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#demonstrations">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Sales Professional</div>
+            <h1 class="hero-title">
+                Raymond Ibrahim
+                <strong>Elite Sales Closer</strong>
+            </h1>
+            <p class="hero-description">
+                A master communicator with an innate ability to connect, persuade, and close. 
+                Combining deep psychological insight with strategic execution to transform prospects 
+                into committed clients. Ready to deliver exceptional results from day one.
+            </p>
+            <div class="cta-container">
+                <a href="#contact" class="cta-primary">
+                    <span>Let's Connect</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">Scroll</span>
+        </div>
+    </section>
+
+    <section id="capabilities" class="stats">
+        <div class="stats-grid fade-in">
+            <div class="stat-item">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Sales Psychology<br>Frameworks Mastered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🧠</div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Hours in Sales<br>Training & Study</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📚</div>
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Sales Books &<br>Courses Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Commitment to<br>Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise">
+        <h2 class="section-title fade-in">Core Competencies</h2>
+        <p class="section-subtitle fade-in">The skills that separate exceptional closers from the rest</p>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">🎯</span>
+                <h3>Advanced Persuasion</h3>
+                <p>Expert-level understanding of influence psychology, cognitive biases, and decision-making triggers. Trained in Cialdini principles, NLP techniques, and consultative selling frameworks that drive authentic commitment.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">💬</span>
+                <h3>Communication Mastery</h3>
+                <p>Exceptional ability to build instant rapport, actively listen for underlying needs, and articulate value in ways that resonate emotionally and logically with diverse audiences and decision-makers.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">📊</span>
+                <h3>Strategic Thinking</h3>
+                <p>Analytical mindset combined with creative problem-solving. Skilled at identifying patterns, forecasting objections, and developing multi-step strategies that address complex stakeholder dynamics.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">🤝</span>
+                <h3>Relationship Building</h3>
+                <p>Natural ability to cultivate trust and credibility quickly. Authentic, empathetic approach that transforms transactional interactions into long-term partnerships and referral networks.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">🔍</span>
+                <h3>Deep Discovery</h3>
+                <p>Masterful questioning techniques that uncover true pain points, budget realities, decision processes, and success criteria. Goes beyond surface-level needs to understand the complete picture.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <span class="expertise-icon">⚡</span>
+                <h3>Objection Handling</h3>
+                <p>Trained in reframing concerns as opportunities, addressing skepticism with evidence and empathy, and maintaining momentum through every phase of the sales process without being pushy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="approach">
+        <div class="approach-content">
+            <h2 class="section-title fade-in">Sales Methodology</h2>
+            <p class="section-subtitle fade-in">A systematic framework refined through intensive study and practice</p>
+            <div class="approach-steps">
+                <div class="step">
+                    <div class="step-number-container">
+                        <div class="step-number">01</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Research & Preparation</h3>
+                        <p>Deep-dive into prospect's business model, competitive landscape, pain points, and growth objectives. Leverage social selling, industry analysis, and stakeholder mapping to enter conversations armed with insights that demonstrate genuine understanding and create immediate credibility.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number-container">
+                        <div class="step-number">02</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Discovery & Alignment</h3>
+                        <p>Strategic questioning that uncovers true needs beyond stated requirements. Build rapport through active listening, emotional intelligence, and genuine curiosity. Map the decision-making process, identify champions, and understand success metrics that matter to each stakeholder.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number-container">
+                        <div class="step-number">03</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Value Demonstration</h3>
+                        <p>Craft compelling narratives that connect our solution directly to quantifiable business outcomes. Use storytelling, case studies, and ROI modeling to make the value tangible. Address concerns proactively and reframe objections as opportunities to deepen understanding.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number-container">
+                        <div class="step-number">04</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Momentum & Close</h3>
+                        <p>Create urgency through scarcity, timing, and competitive positioning without pressure. Develop mutual action plans with clear next steps. Navigate negotiations by finding win-win solutions. Ensure seamless handoff to delivery teams for long-term client success and referral generation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demonstrations" class="results">
+        <h2 class="section-title fade-in">Demonstrated Excellence</h2>
+        <p class="section-subtitle fade-in">Real examples of skill mastery and preparation</p>
+        <div class="results-grid">
+            <div class="result-card fade-in">
+                <span class="result-category">Role-Play Mastery</span>
+                <p class="result-text">
+                    Consistently achieved top scores in competitive sales simulation exercises, demonstrating 
+                    superior objection handling, value articulation, and closing techniques against experienced 
+                    professionals in high-pressure scenarios.
+                </p>
+                <div class="result-metric">95%+</div>
+                <div class="result-context">Average Score in Sales Simulations</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-category">Certification</span>
+                <p class="result-text">
+                    Completed advanced training in SPIN Selling, Challenger Sale, MEDDIC, Sandler methodology, 
+                    and Solution Selling frameworks. Earned certifications demonstrating mastery of enterprise 
+                    sales techniques and consultative approaches.
+                </p>
+                <div class="result-metric">12+</div>
+                <div class="result-context">Professional Sales Certifications</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-category">Communication</span>
+                <p class="result-text">
+                    Developed exceptional presentation and public speaking skills through Toastmasters, debate 
+                    competitions, and client-facing practice sessions. Proven ability to command attention, 
+                    build credibility, and drive decision-making.
+                </p>
+                <div class="result-metric">100+</div>
+                <div class="result-context">Practice Presentations Delivered</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-category">Psychology</span>
+                <p class="result-text">
+                    Deep study of behavioral economics, influence psychology (Cialdini), and decision science. 
+                    Applied understanding of cognitive biases, emotional triggers, and buying psychology to 
+                    craft compelling sales narratives.
+                </p>
+                <div class="result-metric">1000+</div>
+                <div class="result-context">Hours Studying Sales Psychology</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="cta-content">
+            <h2 class="fade-in">Ready to Exceed Expectations</h2>
+            <p class="fade-in">
+                Every master was once a beginner who refused to give up. I bring intensive preparation, 
+                proven frameworks, and an unmatched hunger to succeed. Ready to deliver results that 
+                exceed seasoned professionals from day one.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:raymond.ibrahim@email.com" class="cta-primary">
+                    <span>Let's Connect</span>
+                </a>
+                <a href="#" class="cta-secondary">View Certifications</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">© 2026 Raymond Ibrahim. All rights reserved.</div>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="mailto:raymond.ibrahim@email.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Observe step elements
+        document.querySelectorAll('.step').forEach(el => observer.observe(el));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-bg');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
