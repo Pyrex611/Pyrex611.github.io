@@ -3,1904 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raymond Ibrahim - Sales Closer</title>
+    <title>Raymond Ibrahim | High-Ticket Sales Closer & Revenue Consultant</title>
+    <!-- Primary SEO meta -->
+    <meta name="description" content="Raymond Ibrahim: High-ticket closer with 5+ years closing B2B SaaS & coaching. One-call-close, NEPQ, SPIN selling. 35-45% close rate. Based in Nigeria, available globally.">
+    <meta name="keywords" content="High Ticket Closer, B2B Sales Closer, One Call Close, SPIN Selling, NEPQ, Revenue Operations, Sales Consultant Nigeria, B2B SaaS Closer, Remote Account Executive, Sales Intelligence, Power BI, Richard Mugica, Bedros Keuilian, Bill Walsh">
+    <meta name="author" content="Raymond Ibrahim">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://raymondibrahim.com">
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:title" content="Raymond Ibrahim - Revenue Partner & High-Ticket Closer">
+    <meta property="og:description" content="One-call-close specialist. Data-driven revenue growth via SPIN, NEPQ & Power BI. 35-45% conversion on qualified calls.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://raymondibrahim.com">
+    <meta property="og:image" content="https://raymondibrahim.com/og-preview.jpg"> <!-- placeholder, update later -->
+    <meta property="profile:first_name" content="Raymond">
+    <meta property="profile:last_name" content="Ibrahim">
+    <meta property="profile:username" content="raymondibrahim08">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Raymond Ibrahim | High-Ticket Closer">
+    <meta name="twitter:description" content="Close deals with data & psychology. Former urban planner turned revenue architect.">
+    <meta name="twitter:image" content="https://raymondibrahim.com/twitter-preview.jpg">
+
+    <!-- Preconnect & fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (social icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
         :root {
-            --primary: #0D0D0D;
-            --secondary: #1A1A1A;
-            --accent: #C9A961;
-            --accent-glow: #E8D4A0;
-            --white: #FFFFFF;
-            --text: #F5F5F5;
-            --text-dim: #B8B8B8;
-            --text-subtle: #808080;
-            --bg-dark: #000000;
-            --transition: cubic-bezier(0.19, 1, 0.22, 1);
-            --transition-fast: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100vw;
-        }
-        
-        /* Ensure all text containers don't overflow */
-        h1, h2, h3, h4, h5, h6, p, span, a {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            hyphens: auto;
-        }
-        
-        /* Better touch targets on mobile */
-        button, a, .cta-primary, .cta-secondary, .menu-toggle {
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: rgba(201, 169, 97, 0.2);
-        }
-        
-        /* Prevent container overflow */
-        section, div, nav, footer {
-            max-width: 100%;
-        }
-
-        .grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.025;
-            z-index: 1000;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            mix-blend-mode: overlay;
-        }
-
-        /* Luxurious glow effects */
-        .glow {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow-1 {
-            top: -10%;
-            right: 10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .glow-2 {
-            bottom: 10%;
-            left: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            animation: float 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(50px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 30px) scale(0.9);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 2rem 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(201, 169, 97, 0.15);
-            animation: slideDown 1s var(--transition);
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 101;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-        }
-        
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 101;
-            padding: 0.5rem;
-        }
-        
-        .menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--accent);
-            transition: all 0.3s var(--transition);
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.4s var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            transition: width 0.4s var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-glow);
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 0 6%;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(201, 169, 97, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(232, 212, 160, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, var(--bg-dark) 0%, var(--primary) 100%);
-        }
-
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(201, 169, 97, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(201, 169, 97, 0.03) 1px, transparent 1px);
-            background-size: 100px 100px;
-            opacity: 0.3;
-            animation: grid-flow 20s linear infinite;
-        }
-
-        @keyframes grid-flow {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100px, 100px);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
-            text-align: center;
-        }
-
-        .hero-subtitle {
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            opacity: 0;
-            animation: fadeInUp 1s var(--transition) 0.3s forwards;
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-subtitle::before,
-        .hero-subtitle::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--accent));
-        }
-
-        .hero-subtitle::before {
-            right: calc(100% + 20px);
-        }
-
-        .hero-subtitle::after {
-            left: calc(100% + 20px);
-            background: linear-gradient(to left, transparent, var(--accent));
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 10vw, 8.5rem);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 2rem;
-            letter-spacing: -3px;
-            opacity: 0;
-            animation: fadeInUp 1s var(--transition) 0.5s forwards;
-            background: linear-gradient(135deg, var(--white) 0%, var(--text) 50%, var(--accent-glow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .hero-title strong {
-            font-weight: 800;
-            display: block;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 80px rgba(201, 169, 97, 0.3);
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            color: var(--text-dim);
-            max-width: 850px;
-            margin: 0 auto 4rem;
-            line-height: 1.9;
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeInUp 1s var(--transition) 0.7s forwards;
-            letter-spacing: 0.3px;
-        }
-
-        .cta-container {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s var(--transition) 0.9s forwards;
-        }
-
-        .cta-primary {
-            position: relative;
-            padding: 1.5rem 4rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            overflow: hidden;
-            transition: all 0.5s var(--transition);
-            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.3);
-        }
-
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--white) 100%);
-            transition: left 0.5s var(--transition);
-        }
-
-        .cta-primary span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 70px rgba(201, 169, 97, 0.5);
-        }
-
-        .cta-primary:hover::before {
-            left: 0;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 4rem;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeInUp 1s var(--transition) 1.2s forwards, bounce 2s ease-in-out 2.5s infinite;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(15px);
-            }
-        }
-
-        .scroll-line {
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .scroll-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--accent-glow), transparent);
-            animation: scroll-animation 2s ease-in-out infinite;
-        }
-
-        @keyframes scroll-animation {
-            0% {
-                top: -40px;
-            }
-            100% {
-                top: 100%;
-            }
-        }
-
-        .scroll-text {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-            font-weight: 500;
-        }
-
-        /* Capabilities Section */
-        .stats {
-            padding: 10rem 6%;
-            background: var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-
-        .stats-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 3.5rem 2rem;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.04) 0%, rgba(0, 0, 0, 0.4) 100%);
-            border: 1px solid rgba(201, 169, 97, 0.15);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.6s var(--transition);
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.6s var(--transition);
-        }
-
-        .stat-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(201, 169, 97, 0.2);
-        }
-
-        .stat-item:hover::before {
-            opacity: 1;
-        }
-
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            filter: grayscale(1);
-            opacity: 0.6;
-            transition: all 0.6s var(--transition);
-        }
-
-        .stat-item:hover .stat-icon {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 500;
-            line-height: 1.6;
-        }
-
-        /* Expertise Section */
-        .expertise {
-            padding: 10rem 6%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--bg-dark) 100%);
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent-glow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 1.15rem;
-            margin-bottom: 6rem;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .expertise-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-            gap: 2rem;
-        }
-
-        .expertise-card {
-            padding: 3.5rem 3rem;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.03) 0%, rgba(0, 0, 0, 0.5) 100%);
-            border: 1px solid rgba(201, 169, 97, 0.15);
-            border-left: 3px solid var(--accent);
-            transition: all 0.6s var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, var(--accent-glow), var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.6s var(--transition);
-            z-index: -1;
-        }
-
-        .expertise-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
-            transition: left 0.8s var(--transition);
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-8px);
-            border-left-color: var(--accent-glow);
-            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.2);
-        }
-
-        .expertise-card:hover::before {
-            opacity: 0.5;
-        }
-
-        .expertise-card:hover::after {
-            left: 100%;
-        }
-
-        .expertise-icon {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            display: block;
-            filter: grayscale(1);
-            opacity: 0.5;
-            transition: all 0.6s var(--transition);
-        }
-
-        .expertise-card:hover .expertise-icon {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        .expertise-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        .expertise-card p {
-            color: var(--text-dim);
-            line-height: 1.9;
-            font-weight: 300;
-            font-size: 1.05rem;
-        }
-
-        /* Approach Section */
-        .approach {
-            padding: 10rem 6%;
-            background: var(--bg-dark);
-            position: relative;
-        }
-
-        .approach::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-
-        .approach-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .approach-steps {
-            margin-top: 6rem;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            padding-bottom: 5rem;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s var(--transition);
-        }
-
-        .step:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .step-number-container {
-            position: relative;
-        }
-
-        .step-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 7rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.3) 0%, rgba(201, 169, 97, 0.1) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 0.9;
-            letter-spacing: -4px;
-            position: relative;
-        }
-
-        .step-number::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-        }
-
-        .step-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .step-content p {
-            color: var(--text-dim);
-            line-height: 2;
-            font-weight: 300;
-            font-size: 1.1rem;
-            letter-spacing: 0.3px;
-        }
-
-        /* Demonstrations Section */
-        .results {
-            padding: 10rem 6%;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--primary) 50%, var(--bg-dark) 100%);
-            position: relative;
-        }
-
-        .results::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-
-        .results-grid {
-            max-width: 1400px;
-            margin: 6rem auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-            gap: 2.5rem;
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.04) 0%, rgba(0, 0, 0, 0.6) 100%);
-            padding: 3.5rem;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.6s var(--transition);
-        }
-
-        .result-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.6s var(--transition);
-        }
-
-        .result-card::after {
-            content: '"';
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 12rem;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.02) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .result-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(201, 169, 97, 0.25);
-        }
-
-        .result-card:hover::before {
-            opacity: 1;
-        }
-
-        .result-category {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            color: var(--accent);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .result-text {
-            font-size: 1.15rem;
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            color: var(--text);
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-            letter-spacing: 0.3px;
-        }
-
-        .result-metric {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
-            letter-spacing: -1px;
-        }
-
-        .result-context {
-            font-size: 0.85rem;
-            color: var(--text-subtle);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 12rem 6%;
-            background: var(--bg-dark);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 20% 80%, rgba(232, 212, 160, 0.08) 0%, transparent 50%);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent-glow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cta-section p {
-            font-size: 1.3rem;
-            color: var(--text-dim);
-            margin-bottom: 4rem;
-            font-weight: 300;
-            line-height: 2;
-            letter-spacing: 0.3px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-secondary {
-            position: relative;
-            padding: 1.5rem 4rem;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: all 0.5s var(--transition);
-            overflow: hidden;
-            background: transparent;
-        }
-
-        .cta-secondary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
-            transition: left 0.5s var(--transition);
-            z-index: -1;
-        }
-
-        .cta-secondary:hover {
-            color: var(--bg-dark);
-            border-color: var(--accent-glow);
-            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.4);
-        }
-
-        .cta-secondary:hover::before {
-            left: 0;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 6%;
-            background: var(--primary);
-            border-top: 1px solid rgba(201, 169, 97, 0.15);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-text {
-            color: var(--text-subtle);
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            font-weight: 300;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .social-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 500;
-            transition: all 0.4s var(--transition);
-            position: relative;
-        }
-
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
-            transition: width 0.4s var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--accent-glow);
-        }
-
-        .social-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .expertise-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .glow-1, .glow-2 {
-                width: 400px;
-                height: 400px;
-            }
-
-            .step {
-                grid-template-columns: 120px 1fr;
-                gap: 2.5rem;
-            }
-
-            .step-number {
-                font-size: 5rem;
-            }
-            
-            .expertise-grid,
-            .results-grid {
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Navigation - Mobile optimized */
-            nav {
-                padding: 1.2rem 5%;
-                flex-wrap: nowrap;
-            }
-            
-            .logo {
-                font-size: 1.4rem;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: rgba(13, 13, 13, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                padding: 2rem;
-                transition: right 0.4s var(--transition);
-                border-left: 1px solid rgba(201, 169, 97, 0.2);
-                z-index: 99;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-                letter-spacing: 2px;
-                padding: 0.5rem 0;
-            }
-
-            /* Hero Section - Mobile optimized */
-            .hero {
-                padding: 0 5%;
-                min-height: 90vh;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.65rem;
-                letter-spacing: 3px;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-subtitle::before,
-            .hero-subtitle::after {
-                width: 25px;
-            }
-
-            .hero-title {
-                font-size: clamp(2.5rem, 12vw, 4.5rem);
-                margin-bottom: 1.5rem;
-                letter-spacing: -2px;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-                margin-bottom: 2.5rem;
-                line-height: 1.7;
-            }
-
-            .cta-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-primary {
-                padding: 1.2rem 3rem;
-                font-size: 0.75rem;
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .scroll-indicator {
-                bottom: 2rem;
-            }
-            
-            .scroll-line {
-                height: 50px;
-            }
-
-            /* Stats Section - Mobile optimized */
-            .stats {
-                padding: 6rem 5%;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .stat-item {
-                padding: 2.5rem 1.5rem;
-            }
-            
-            .stat-icon {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .stat-number {
-                font-size: 3.5rem;
-            }
-            
-            .stat-label {
-                font-size: 0.8rem;
-                letter-spacing: 1.5px;
-            }
-
-            /* Expertise Section - Mobile optimized */
-            .expertise {
-                padding: 6rem 5%;
-            }
-            
-            .section-title {
-                font-size: clamp(2rem, 9vw, 3.5rem);
-                margin-bottom: 1rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 4rem;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .expertise-card {
-                padding: 2.5rem 2rem;
-            }
-            
-            .expertise-icon {
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .expertise-card h3 {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-            
-            .expertise-card p {
-                font-size: 0.95rem;
-                line-height: 1.7;
-            }
-
-            /* Approach Section - Mobile optimized */
-            .approach {
-                padding: 6rem 5%;
-            }
-
-            .step {
-                grid-template-columns: 70px 1fr;
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-                padding-bottom: 3rem;
-            }
-
-            .step-number {
-                font-size: 3.5rem;
-                letter-spacing: -2px;
-            }
-            
-            .step-number::after {
-                width: 40px;
-                bottom: -5px;
-            }
-
-            .step-content h3 {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-            
-            .step-content p {
-                font-size: 0.95rem;
-                line-height: 1.8;
-            }
-
-            /* Results Section - Mobile optimized */
-            .results {
-                padding: 6rem 5%;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-top: 4rem;
-            }
-            
-            .result-card {
-                padding: 2.5rem 2rem;
-            }
-            
-            .result-card::after {
-                font-size: 8rem;
-                top: 1.5rem;
-                right: 1.5rem;
-            }
-            
-            .result-category {
-                padding: 0.4rem 1.2rem;
-                font-size: 0.7rem;
-                letter-spacing: 1.5px;
-                margin-bottom: 1.5rem;
-            }
-            
-            .result-text {
-                font-size: 1rem;
-                line-height: 1.8;
-                margin-bottom: 2rem;
-            }
-            
-            .result-metric {
-                font-size: 2rem;
-            }
-            
-            .result-context {
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-            }
-
-            /* CTA Section - Mobile optimized */
-            .cta-section {
-                padding: 6rem 5%;
-            }
-            
-            .cta-section h2 {
-                font-size: clamp(2rem, 9vw, 3.5rem);
-                margin-bottom: 1.5rem;
-            }
-            
-            .cta-section p {
-                font-size: 1rem;
-                margin-bottom: 3rem;
-                line-height: 1.8;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-secondary {
-                padding: 1.2rem 3rem;
-                font-size: 0.75rem;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            /* Footer - Mobile optimized */
-            footer {
-                padding: 3rem 5%;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            .footer-text {
-                font-size: 0.8rem;
-            }
-
-            .social-links {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .social-links a {
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-            }
-
-            /* Reduce glow effects on mobile */
-            .glow-1, .glow-2 {
-                width: 300px;
-                height: 300px;
-                opacity: 0.1;
-            }
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --accent: #D4AF37; /* Champagne Gold */
+            --accent-muted: rgba(212, 175, 55, 0.2);
+            --text-main: #FFFFFF;
+            --text-dim: #A0A0A0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* Subtle Grain & Glow */
+        .noise { position: fixed; inset: 0; background: url('https://grainy-gradients.vercel.app/noise.svg'); opacity: 0.05; pointer-events: none; z-index: 999; }
+        .glow { position: absolute; width: 40vw; height: 40vw; background: radial-gradient(circle, var(--accent-muted) 0%, transparent 70%); filter: blur(100px); z-index: -1; }
+
+        /* Modern Navigation */
+        nav { position: fixed; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass); }
+        .logo { font-weight: 700; letter-spacing: 2px; color: var(--accent); font-size: 1.2rem; }
+
+        /* Hero Section - mobile-first stacking */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 5% 4rem; gap: 3rem; position: relative; }
+        .hero-content { flex: 1; z-index: 2; }
+        .hero-video { flex: 1; position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass); box-shadow: 0 0 50px rgba(0,0,0,0.5); max-width: 600px; margin: 0 auto; width: 100%; }
+        .video-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--surface); display: flex; align-items: center; justify-content: center; position: relative; }
+        .play-btn { width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--bg); transition: var(--transition); }
+        .play-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--accent); }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .highlight { color: var(--accent); }
+        .badge { display: inline-block; padding: 5px 15px; border: 1px solid var(--accent); color: var(--accent); border-radius: 20px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px; }
+
+        /* Metrics / Bento Grid */
+        .section { padding: 6rem 5%; }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .bento-card { background: var(--surface); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--glass); transition: var(--transition); }
+        .bento-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .bento-card h3 { font-size: 2rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .bento-card p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* Data Section */
+        .data-viz { display: flex; gap: 4rem; align-items: center; }
+        .data-text { flex: 1; }
+        .data-visual { flex: 1.5; background: var(--surface); border-radius: 20px; padding: 20px; border: 1px solid var(--glass); }
+
+        /* CTAs */
+        .cta-btn { display: inline-block; padding: 18px 36px; background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 700; border-radius: 5px; transition: var(--transition); text-transform: uppercase; letter-spacing: 1px; margin-top: 2rem; border: none; cursor: pointer; font-size: 0.9rem; }
+        .cta-btn:hover { filter: brightness(1.2); letter-spacing: 3px; }
+
+        /* footer socials */
+        .footer-socials { display: flex; justify-content: center; gap: 2rem; margin: 3rem 0 2rem; }
+        .footer-socials a { color: var(--text-dim); font-size: 1.8rem; transition: var(--transition); line-height: 1; }
+        .footer-socials a:hover { color: var(--accent); transform: translateY(-3px); }
+        .footer-location { color: var(--text-dim); font-size: 0.9rem; letter-spacing: 0.5px; }
+        .footer-location i { color: var(--accent); margin-right: 5px; }
+
+        /* Animations */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .revealed { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE STACKING ===== */
+        /* Tablet and below: stack hero vertically */
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; gap: 2rem; }
+            .hero-content { max-width: 700px; }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Mobile adjustments (only padding-top increased to avoid nav overlap) */
+        @media (max-width: 600px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .data-viz { flex-direction: column; }
+            .hero { padding-left: 4%; padding-right: 4%; padding-top: 120px; } /* increased top padding */
+            .hero-video { max-width: 100%; }
+            h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+            .cta-btn { padding: 14px 28px; font-size: 0.8rem; }
         }
 
         @media (max-width: 480px) {
-            /* Extra small screens - further optimization */
-            nav {
-                padding: 1rem 4%;
-            }
-            
-            .logo {
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .hero {
-                padding: 0 4%;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.6rem;
-                letter-spacing: 2px;
-            }
-            
-            .hero-subtitle::before,
-            .hero-subtitle::after {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: clamp(2rem, 15vw, 3.5rem);
-            }
-            
-            .hero-description {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-            
-            .cta-primary {
-                padding: 1.1rem 2.5rem;
-            }
-
-            .stats,
-            .expertise,
-            .approach,
-            .results,
-            .cta-section {
-                padding: 5rem 4%;
-            }
-            
-            .section-title {
-                font-size: clamp(1.8rem, 10vw, 3rem);
-            }
-            
-            .section-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 3rem;
-            }
-
-            .stat-item {
-                padding: 2rem 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 3rem;
-            }
-            
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            .expertise-card,
-            .result-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .expertise-card h3 {
-                font-size: 1.4rem;
-            }
-            
-            .expertise-card p,
-            .step-content p,
-            .result-text {
-                font-size: 0.9rem;
-            }
-
-            .step {
-                grid-template-columns: 60px 1fr;
-                gap: 1.2rem;
-                margin-bottom: 2.5rem;
-                padding-bottom: 2.5rem;
-            }
-
-            .step-number {
-                font-size: 3rem;
-            }
-            
-            .step-content h3 {
-                font-size: 1.4rem;
-            }
-            
-            .result-card::after {
-                font-size: 6rem;
-                top: 1rem;
-                right: 1rem;
-            }
-            
-            .result-metric {
-                font-size: 1.8rem;
-            }
-
-            .cta-section h2 {
-                font-size: clamp(1.8rem, 10vw, 3rem);
-            }
-            
-            .cta-section p {
-                font-size: 0.95rem;
-            }
-
-            .glow-1, .glow-2 {
-                width: 250px;
-                height: 250px;
-                opacity: 0.08;
-            }
-            
-            /* Disable scrollbar styling on very small screens */
-            ::-webkit-scrollbar {
-                width: 5px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            /* Very small screens */
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-            
-            .step-number {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s var(--transition);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-glow) 100%);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--accent-glow) 0%, var(--accent) 100%);
-        }
-        
-        /* Respect user's motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            
-            .glow-1, .glow-2 {
-                animation: none;
-            }
-        }
-        
-        /* Optimize animations on mobile devices */
-        @media (max-width: 768px) {
-            * {
-                animation-duration: 0.5s !important;
-            }
-            
-            .glow-1, .glow-2 {
-                will-change: transform;
-                transform: translateZ(0);
-            }
-            
-            .hero-bg::before {
-                animation: none; /* Disable grid animation on mobile for performance */
-            }
+            .hero { padding-top: 100px; } /* fine-tuned for very small screens */
+            .play-btn { width: 60px; height: 60px; font-size: 1.5rem; }
+            .badge { font-size: 0.6rem; }
+            .footer-socials a { font-size: 1.5rem; gap: 1.5rem; }
         }
     </style>
+    <!-- JSON-LD Structured Data (Person) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Raymond Ibrahim",
+        "jobTitle": "High-Ticket Sales Closer & Revenue Consultant",
+        "description": "Results-driven Revenue Consultant & High-Ticket Sales Closer with 5+ years of proven expertise in one-call-close methodologies, trained under Richard Mugica, Bedros Keuilian, and Bill Walsh.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jos",
+            "addressRegion": "Plateau State",
+            "addressCountry": "Nigeria"
+        },
+        "email": "raymondibrahim08@gmail.com",
+        "telephone": "+234-9035491865",
+        "sameAs": [
+            "https://www.instagram.com/raymondibrahim08",
+            "https://www.facebook.com/share/1goPT6BarW/",
+            "#",
+            "#"
+        ],
+        "knowsAbout": [
+            "High-Ticket Closing", "One-Call-Close", "NEPQ", "SPIN Selling", "Straight Line System",
+            "B2B SaaS", "Sales Intelligence", "Power BI", "HubSpot", "Salesforce", "Objection Handling"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Federal Polytechnic Nasarawa"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Independent Sales Consultant"
+        }
+    }
+    </script>
 </head>
 <body>
-    <div class="grain"></div>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
+    <div class="noise"></div>
+    <div class="glow" style="top: 10%; right: 10%;"></div>
 
     <nav>
-        <div class="logo">RAYMOND</div>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="logo">Raymond Ibrahim</div>
+        <div class="nav-links">
+            <a href="#results" style="color: white; text-decoration: none; font-size: 0.8rem; margin-left: 20px;">RESULTS</a>
+            <a href="#contact" class="cta-btn" style="padding: 10px 20px; margin: 0; font-size: 0.7rem;">HIRE ME</a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#capabilities">Capabilities</a></li>
-            <li><a href="#expertise">Expertise</a></li>
-            <li><a href="#approach">Approach</a></li>
-            <li><a href="#demonstrations">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
 
+    <!-- Hero: content first, video second (flex column on mobile) -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-subtitle">Sales Professional</div>
-            <h1 class="hero-title">
-                Raymond Ibrahim
-                <strong>Elite Sales Closer</strong>
-            </h1>
-            <p class="hero-description">
-                A master communicator with an innate ability to connect, persuade, and close. 
-                Combining deep psychological insight with strategic execution to transform prospects 
-                into committed clients. Ready to deliver exceptional results from day one.
-            </p>
-            <div class="cta-container">
-                <a href="#contact" class="cta-primary">
-                    <span>Let's Connect</span>
-                </a>
-            </div>
+            <span class="badge">Performance-Based Revenue Partner</span>
+            <h1>Turning <span class="highlight">Friction</span> Into <span class="highlight">Revenue</span> via Data & Psychology.</h1>
+            <p style="color: var(--text-dim); max-width: 500px;">High-Ticket Closer specializing in high-velocity <strong>One-Call-Close</strong> cadences and <strong>SPIN / NEPQ</strong> frameworks. 35-45% close rate on qualified calls.</p>
+            <a href="#contact" class="cta-btn">Scale My Revenue</a>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span class="scroll-text">Scroll</span>
-        </div>
-    </section>
-
-    <section id="capabilities" class="stats">
-        <div class="stats-grid fade-in">
-            <div class="stat-item">
-                <div class="stat-icon">🎯</div>
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Sales Psychology<br>Frameworks Mastered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">🧠</div>
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Hours in Sales<br>Training & Study</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">📚</div>
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Sales Books &<br>Courses Completed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">⚡</div>
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Commitment to<br>Excellence</div>
+        <div class="hero-video">
+            <div class="video-placeholder">
+                <div class="play-btn">▶</div>
+                <p style="position: absolute; bottom: 20px; font-size: 0.7rem; color: var(--accent);">WATCH: 60s Performance Demo</p>
             </div>
         </div>
     </section>
 
-    <section id="expertise" class="expertise">
-        <h2 class="section-title fade-in">Core Competencies</h2>
-        <p class="section-subtitle fade-in">The skills that separate exceptional closers from the rest</p>
-        <div class="expertise-grid">
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">🎯</span>
-                <h3>Advanced Persuasion</h3>
-                <p>Expert-level understanding of influence psychology, cognitive biases, and decision-making triggers. Trained in Cialdini principles, NLP techniques, and consultative selling frameworks that drive authentic commitment.</p>
+    <section id="results" class="section">
+        <div class="bento-grid">
+            <div class="bento-card" data-reveal>
+                <h3>35-45%</h3>
+                <p>Average conversion rate on qualified high-ticket discovery calls (industry avg. 20-27%).</p>
             </div>
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">💬</span>
-                <h3>Communication Mastery</h3>
-                <p>Exceptional ability to build instant rapport, actively listen for underlying needs, and articulate value in ways that resonate emotionally and logically with diverse audiences and decision-makers.</p>
+            <div class="bento-card" data-reveal>
+                <h3>$3k-$50k</h3>
+                <p>Contract value specialization with one-call mastery, from coaching to B2B SaaS.</p>
             </div>
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">📊</span>
-                <h3>Strategic Thinking</h3>
-                <p>Analytical mindset combined with creative problem-solving. Skilled at identifying patterns, forecasting objections, and developing multi-step strategies that address complex stakeholder dynamics.</p>
-            </div>
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">🤝</span>
-                <h3>Relationship Building</h3>
-                <p>Natural ability to cultivate trust and credibility quickly. Authentic, empathetic approach that transforms transactional interactions into long-term partnerships and referral networks.</p>
-            </div>
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">🔍</span>
-                <h3>Deep Discovery</h3>
-                <p>Masterful questioning techniques that uncover true pain points, budget realities, decision processes, and success criteria. Goes beyond surface-level needs to understand the complete picture.</p>
-            </div>
-            <div class="expertise-card fade-in">
-                <span class="expertise-icon">⚡</span>
-                <h3>Objection Handling</h3>
-                <p>Trained in reframing concerns as opportunities, addressing skepticism with evidence and empathy, and maintaining momentum through every phase of the sales process without being pushy.</p>
+            <div class="bento-card" data-reveal>
+                <h3>0-Day</h3>
+                <p>Cycle compression. Turning 30-day leads into same-day commitments using NEPQ & SPIN.</p>
             </div>
         </div>
     </section>
 
-    <section id="approach" class="approach">
-        <div class="approach-content">
-            <h2 class="section-title fade-in">Sales Methodology</h2>
-            <p class="section-subtitle fade-in">A systematic framework refined through intensive study and practice</p>
-            <div class="approach-steps">
-                <div class="step">
-                    <div class="step-number-container">
-                        <div class="step-number">01</div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Research & Preparation</h3>
-                        <p>Deep-dive into prospect's business model, competitive landscape, pain points, and growth objectives. Leverage social selling, industry analysis, and stakeholder mapping to enter conversations armed with insights that demonstrate genuine understanding and create immediate credibility.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number-container">
-                        <div class="step-number">02</div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Discovery & Alignment</h3>
-                        <p>Strategic questioning that uncovers true needs beyond stated requirements. Build rapport through active listening, emotional intelligence, and genuine curiosity. Map the decision-making process, identify champions, and understand success metrics that matter to each stakeholder.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number-container">
-                        <div class="step-number">03</div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Value Demonstration</h3>
-                        <p>Craft compelling narratives that connect our solution directly to quantifiable business outcomes. Use storytelling, case studies, and ROI modeling to make the value tangible. Address concerns proactively and reframe objections as opportunities to deepen understanding.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number-container">
-                        <div class="step-number">04</div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Momentum & Close</h3>
-                        <p>Create urgency through scarcity, timing, and competitive positioning without pressure. Develop mutual action plans with clear next steps. Navigate negotiations by finding win-win solutions. Ensure seamless handoff to delivery teams for long-term client success and referral generation.</p>
-                    </div>
+    <section class="section" style="background: var(--surface);">
+        <div class="data-viz">
+            <div class="data-visual">
+                <div style="height: 300px; background: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); flex-direction: column; gap: 10px;">
+                    <i class="fas fa-chart-line" style="font-size: 3rem; opacity: 0.5;"></i>
+                    <span>[ Power BI Pipeline Health Dashboard ]</span>
+                    <span style="font-size: 0.8rem; color: var(--text-dim);">forecast accuracy 90%+</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="demonstrations" class="results">
-        <h2 class="section-title fade-in">Demonstrated Excellence</h2>
-        <p class="section-subtitle fade-in">Real examples of skill mastery and preparation</p>
-        <div class="results-grid">
-            <div class="result-card fade-in">
-                <span class="result-category">Role-Play Mastery</span>
-                <p class="result-text">
-                    Consistently achieved top scores in competitive sales simulation exercises, demonstrating 
-                    superior objection handling, value articulation, and closing techniques against experienced 
-                    professionals in high-pressure scenarios.
-                </p>
-                <div class="result-metric">95%+</div>
-                <div class="result-context">Average Score in Sales Simulations</div>
-            </div>
-            <div class="result-card fade-in">
-                <span class="result-category">Sales Methodology</span>
-                <p class="result-text">
-                    <div>Bill Walsh (STRIP Selling)</div>
-					<div>1 Call Closing Methodology (The Closers Network)</div>
-                </p>
-                <div class="result-metric">4+</div>
-                <div class="result-context">Years Mastering Professional Sales Methodologies</div>
-            </div>
-            <div class="result-card fade-in">
-                <span class="result-category">Communication</span>
-                <p class="result-text">
-                    Developed exceptional presentation and public speaking skills through Toastmasters, debate 
-                    competitions, and client-facing practice sessions. Proven ability to command attention, 
-                    build credibility, and drive decision-making.
-                </p>
-                <div class="result-metric">100+</div>
-                <div class="result-context">Practice Presentations Delivered</div>
-            </div>
-            <div class="result-card fade-in">
-                <span class="result-category">Psychology</span>
-                <p class="result-text">
-                    Deep study of behavioral economics, influence psychology (Cialdini), and decision science. 
-                    Applied understanding of cognitive biases, emotional triggers, and buying psychology to 
-                    craft compelling sales narratives.
-                </p>
-                <div class="result-metric">1000+</div>
-                <div class="result-context">Hours Studying Sales Psychology</div>
+            <div class="data-text" data-reveal>
+                <span class="badge">Sales Intelligence</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Decisions Based on <span class="highlight">Data</span>, Not Guesses.</h2>
+                <p style="color: var(--text-dim);">I utilize <strong>Advanced Excel</strong> and <strong>Power BI</strong> to visualize pipeline health, audit CRM bottlenecks, and forecast revenue with 90%+ accuracy. Trained under Bedros Keuilian & Richard Mugica.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="cta-section">
-        <div class="cta-content">
-            <h2 class="fade-in">Ready to Exceed Expectations</h2>
-            <p class="fade-in">
-                Every master was once a beginner who refused to give up. I bring intensive preparation, 
-                proven frameworks, and an unmatched hunger to succeed. Ready to deliver results that 
-                exceed seasoned professionals from day one.
-            </p>
-            <div class="cta-buttons">
-                <a href="mailto:raymond.ibrahim@email.com" class="cta-primary">
-                    <span>Let's Connect</span>
-                </a>
-            </div>
+    <!-- Contact / Footer section with socials -->
+    <footer id="contact" class="section" style="text-align: center; padding-bottom: 4rem;">
+        <h2 style="font-size: clamp(2rem, 6vw, 3rem);">Ready to dominate?</h2>
+        <a href="mailto:raymondibrahim08@gmail.com" class="cta-btn">Secure My Calendar</a>
+        
+        <!-- Social & location strip -->
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/raymondibrahim08" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1goPT6BarW/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="X (Twitter) placeholder"><i class="fab fa-x-twitter"></i></a> <!-- placeholder -->
+            <a href="#" aria-label="LinkedIn placeholder"><i class="fab fa-linkedin-in"></i></a> <!-- placeholder -->
         </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-text">© 2026 Raymond Ibrahim. All rights reserved.</div>
-            <div class="social-links">
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-                <a href="mailto:raymondibrahim3000@gmail.com">Email</a>
-            </div>
+        <div class="footer-location">
+            <i class="fas fa-map-pin"></i> Jos, Plateau State, Nigeria | GMT+1 · available EST/PST
         </div>
+        <p style="margin-top: 3rem; color: var(--glass); font-size: 0.8rem;">
+            © 2026 RAYMOND IBRAHIM · GLOBAL OPERATIONS · BSc Urban & Regional Planning
+        </p>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('nav')) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-        }
-    
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Intersection Observer for sleek reveals
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('revealed');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        
-        // Observe step elements
-        document.querySelectorAll('.step').forEach(el => observer.observe(el));
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-bg');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
